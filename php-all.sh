@@ -12,12 +12,12 @@
 
 main() {
     # Find all PHP versions installed using Homebrew
-    local VERSIONS=($(brew list -1 | grep "^php\d\d$" | sed s/^php//))
+    local VERSIONS=($(brew list -1 | grep "^php\d\d$"))
 
     # Run the command line using all the configured PHP version
-    for i in ${VERSIONS[*]}; do
-        echo "=================== PHP $(echo ${i} | sed 's/^./&./') ==================="
-        $(brew --prefix php${i})/bin/php "$@"
+    for p in ${VERSIONS[*]}; do
+        echo "=================== PHP ${p:3:1}.${p:4:1} ==================="
+        $(brew --prefix $p)/bin/php "$@"
     done
 }
 

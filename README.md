@@ -31,9 +31,8 @@ The order of arguments in the command line is not important. The script groups t
 by the version of PHP and upgrades all the extensions together with the PHP version they
 belong to.
 
-Only the installed PHP versions are allowed. Not installed (or invalid) PHP versions are
-rejected. There is no validation of the package names for extensions. They are passed verbatim
-to `brew upgrade` (that does the validation and displays any error message is needed.)
+Only the installed PHP versions and extensions are allowed. Not installed (or invalid) 
+PHP versions or extensions are identified and reported.
 
 
 ### `php-all.sh`
