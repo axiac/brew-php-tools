@@ -1,3 +1,11 @@
+> [!NOTE]
+> This repository has been archived.\
+> It contains scripts that are of no use since 2018
+> when the tap `homebrew/php` has been removed, the PHP formulae have been included
+> in the core Homebrew repo and the option to install/uninstall PHP extensions separately
+> has been suppressed (the new PHP versions come with a predefined set of extensions and
+> that's all about them.)
+
 ## The tools
 
 ### `brew-upgrade-php.sh`
@@ -31,7 +39,7 @@ The order of arguments in the command line is not important. The script groups t
 by the version of PHP and upgrades all the extensions together with the PHP version they
 belong to.
 
-Only the installed PHP versions and extensions are allowed. Not installed (or invalid) 
+Only the installed PHP versions and extensions are allowed. Not installed (or invalid)
 PHP versions or extensions are identified and reported.
 
 
