@@ -12,13 +12,26 @@
 
 main() {
     # Find all PHP versions installed using Homebrew
-    local VERSIONS=($(brew list -1 | grep "^php\d\d$"))
-
+    # Old versions, not updated any more
+    local OLD_VERS=($(brew list -1 | grep "^php\d\d$"))
     # Run the command line using all the configured PHP version
-    for p in ${VERSIONS[*]}; do
+    for p in ${OLD_VERS[*]}; do
         echo "=================== PHP ${p:3:1}.${p:4:1} ==================="
         $(brew --prefix $p)/bin/php "$@"
     done
+
+    # Using the new format for previous versions
+    local VERSIONS=($(brew list -1 | grep -E "^php@\d\.\d$"))
+
+    # Run the command line using all the configured PHP version
+    for p in ${VERSIONS[*]}; do
+        echo "=================== PHP ${p:4:3} ==================="
+        $(brew --prefix $p)/bin/php "$@"
+    done
+
+    # The current version
+    echo "=================== PHP  ==================="
+    $(brew --prefix php)/bin/php "$@"
 }
 
 
